@@ -1,0 +1,146 @@
+\documentclass[12pt,a4paper]{article}
+\input{shun4imports}
+\input{shun4colors}
+\input{shun4cmds}
+
+\lhead{Complex Analysis}
+\chead{Midterm Definitions}
+\rhead{Shun (@shun4midx)}
+
+\begin{document}
+\begin{center}
+  {\Large \bf Complex Analysis: Midterm Definitions}\\[8pt]
+  \textbf{Author:} Shun (@shun4midx)
+\end{center}
+
+\pinkbox{Remark}{
+	I only will include definitions that are useful for me, i.e. things that I still find useful after learning this course for 7 weeks. Otherwise, there will be too many definitions.
+}
+
+\vspace{1.0em}\bluesec{Power Series}
+
+\purplesec{Analytic Polynomial}
+
+\pinkbox{Analytic Polynomial}{
+	If $P(x, y) = \alpha_0 + \alpha_1(x + iy) + \dots + \alpha_N(x + iy)^N =$ \hl{$\sum_{k = 0}^N \alpha_k z^k$} for some $\alpha_k \in \mathbb{C}$, then it is an \hlbf{analytic polynomial}.
+}
+
+\pinkbox{Cauchy-Riemann Equations}{
+	For $P(x, y) = u(x, y) + iv(x, y)$, the \textbf{Cauchy-Riemann equations} are: \hl{$u_x = v_y$ and $u_y = -v_x$}. Another way to view it is $P_y = iP_x$.
+}
+
+\purplesec{Radius of Convergence}
+
+\pinkbox{Cauchy Product}{
+	Given $P_1(z) = \sum a_k z^k$, $R = R_1$; $P_2(z) = \sum b_k z^k$, $R = R_2$. Then, $P_1P_2 = \sum c_k z^k$, where $c_k = \sum_{p = 0}^k a_p b_{k - p}$, and \hl{$\boxed{R \geq \min(R_1, R_2)}$}
+}
+
+\vspace{1.0em}\bluesec{Analytic Functions}
+
+\purplesec{Analytic Functions}
+
+\pinkbox{Analytic}{
+	$f$ is \textbf{analytic} at $z$ if $f$ is \textbf{differentiable in a neighborhood} of $z$. Similarly, $f$ is \textbf{analytic} on a set $S$ if $f$ is \textbf{diff at all points} of some \hl{open set containing $S$}.
+}
+
+\newpage
+
+\bluesec{Line Integrals}
+
+\purplesec{Smooth Curves}
+
+\pinkbox{Smooth}{
+	The curve $z(t) = x(t) + iy(t)$ is said to be \textbf{smooth} if \hl{$z'(t) \neq 0$} except at \textit{finitely many points}.
+}
+
+\pinkbox{Line Integral}{
+	Say $C$ is a \textbf{smooth} curve in $\mathbb{C}$, where $z(t) = x(t) + iy(t)$. Then, $\int_C f(z) dz = \int_a^b f(z(t)) dz =$ \hl{$\int_a^b f(z(t)) z'(t) dt$}
+}
+
+\pinkbox{Smoothly Equivalent}{
+	Let $C_1$ and $C_1$ be \textbf{smooth curves} in $\mathbb{C}$, where $C_1:\ z(t),\ a \leq t \leq b$ and $C_2:\ w(t),\ c \leq t \leq d$. $C_1$ and $C_2$ are said to be \hl{\textbf{smoothly equivalent}} if $\exists$ 1-1 $\mathcal{C}^1$ mapping $\lambda: [c, d] \to [a, b]$, s.t. \hl{$w(t) = z(\lambda(t))$}. \\
+
+	As this is an equivalence relation, we denote \textbf{smoothly equivalent} with \hl{$C_1 \sim_{sim} C_2$}
+}
+
+\purplesec{Rectangle Theorem}
+
+\pinkbox{Simple Closed Curve}{
+  \begin{itemize}
+    \item A curve is \textbf{closed} if its internal and terminal points coincide
+    \item $C$ is a \textbf{simple closed curve} with $t \in [a, b]$ if \hl{$z(t_1) = z(t_2)$} with $t_1 < t_2$ implies \hl{$t_1 = a$ and $t_2 = b$}
+    \item The \textbf{boundary of a rectangle} is the simple closed curve in the \textbf{counterclockwise direction}
+  \end{itemize}
+}
+
+\vspace{1.0em}\bluesec{Liouville's Theorem}
+
+\pinkbox{Convex Set}{
+  We say $S$ is a \textbf{convex set} in $\mathbb{C}$ if $\forall x, y \in S$, \hl{$tx + (1 - t)y \in S$} $\forall t \in [0, 1]$. \\
+
+  Note, this implies \hl{$x_1, \dots, x_N \in S \Leftrightarrow \sum_{i = 1}^N a_i x_i \in S$} $\forall \sum_{i = 1}^N a_i = 1 \text{ and } a_i \geq 0$
+}
+
+\vspace{1.0em}\bluesec{Saddle Points}
+
+\pinkbox{C-analytic}{
+  A function is \textbf{C-analytic} on a region $D$ if it is analytic on $D$ and \textbf{continuous} on $\boxed{\bar{D}}$
+}
+
+\pinkbox{Saddle Point}{
+  $z_0$ is a \textbf{saddle point} of an analytic function $f$ on a region $D$ if $z_0$ is a saddle point on the real valued function $g(x, y) = |f(x, y)|$. In other words, \textbf{$\mathbf{g}$ is differentiable} and \hl{$g_x(z_0) = g_y(z_0) = 0$} but $z_0$ is \hlbf{NOT a local extremum}.
+}
+
+\vspace{1.0em}\bluesec{Schwarz Lemma}
+
+\pinkbox{$B_\alpha(z)$} {
+  Define \hl{$B_\alpha(z) = \frac{z - \alpha}{1 - \bar{\alpha}z}$}, for $|\alpha| < 1$. Then,
+
+  \begin{enumerate}
+    \item $B_\alpha(\alpha) = 0$
+    \item $B_\alpha(z)$ is \textbf{ana on D}, and it is \textbf{conti on $\mathbf{\bar{D}}$}.
+    \item \hl{$|B_\alpha(z)|^2|_{z = 1} = 1$}, so by \textbf{max modulus thm}, \hl{$|B_\alpha(z)| \leq 1$} on $D$
+  \end{enumerate}
+}
+
+\vspace{1.0em}\bluesec{Morera's Theorem}
+
+\pinkbox{Converges Uniformly on Compacta}{
+  Let $\{f_n\}$ and $f$ be defined on an open set $D$. We say that $f_n$ \textbf{converges uniformly on compacta} if $f_n \to f$ uniformly on \textbf{every compact subset} $K \subseteq D$.
+}
+
+\pinkbox{Regular Analytic}{
+  A curve $\gamma: [a, b] \to \mathbb{C}$ is called a \textbf{regular analytic} arc if $\gamma$ is an \hl{\textbf{analytic map, 1--1}} \hl{on $[a, b]$ with $\gamma' \neq 0$}
+}
+
+\vspace{1.0em}\bluesec{Simply Connected Domain}
+
+\pinkbox{Simply Connected (Book)}{
+  We say $S$ is \textbf{simply connected} if it is \textbf{path connected} and for any conti maps $f_1: [0, 1] \to S$ with \hl{$f_0(0) = f_1(0)$ and $f_0(1) = f_1(1)$}, $\exists$ conti $F: [0, 1] \times [0, 1] \to S$, s.t. \hl{$F(t, 0) = f_0(t),\ F(t, 1) = f_1(t)$}.
+}
+
+\pinkbox{Simply Connected (Lecture)}{
+  For a region $D \subseteq \mathbb{C}$, $D$ is \textbf{simply connected} if \hl{$(\mathbb{C} \cup \{\infty\}) \setminus D$} is \textbf{path connected}
+}
+
+\pinkbox{Holomorphic Simply Connected (HSC)}{
+  $D$ is hsc if $\forall f:$ ana on $D$, \hl{$\int_\Gamma f dz = 0$ for all simple closed curve $\Gamma \subseteq D$}
+}
+
+\vspace{1.0em}\bluesec{Singularity}
+
+\pinkbox{Deleted Neighborhood}{
+  A \textbf{deleted neighborhood} of $z$ is an open set of \hl{$\{z\ |\ 0 < |z - z_0| < \delta\}$}
+}
+
+\pinkbox{Definition of Singularities}{
+  Say $z_0$ is a \textbf{singularity} of $f$, we can classify it as follows:
+
+  \begin{enumerate}
+    \item If $\exists g$ that is \textbf{ana} at $z_0$ and \hl{$f(z) = g(z)$ in some \textbf{deleted nbd} of $z_0$}, we say $f$ has a \hlbf{removable singularity}
+    \item If for $z \neq z_0$, $f$ can be written as \hl{$f(z) = \frac{A(z)}{B(z)}$}, where $A$ and $B$ are analytic at $z_0$, $A(z_0) \neq 0, B(z_0) = 0$, we say $f$ has a \textbf{pole} at $z_0$. In particular, if $B$ has a zero of order $k$ at $z_0$, then we say $z_0$ is a pole of $f$ of order $k$
+    \item If $f$ has neither a removable singularity nor a pole at $z_0$, then we call $z_0$ an \textbf{essential singularity} of $f$
+  \end{enumerate}
+}
+
+\end{document}
